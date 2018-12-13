@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "icecloud",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitoe5680f73",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "schemaGraphql": "s3://icecloud-20181209201118-deployment/amplify-appsync-files/schema.graphql.1544405880907",
+    "ResolverBucket": "icecloud-20181209201118-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1544405880907"
+}

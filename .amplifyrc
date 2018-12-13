@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "icecloud-20181209201118-authRole",
+            "UnauthRoleArn": "arn:aws:iam::100333399531:role/icecloud-20181209201118-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::100333399531:role/icecloud-20181209201118-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "icecloud-20181209201118-deployment",
+            "UnauthRoleName": "icecloud-20181209201118-unauthRole",
+            "StackName": "icecloud-20181209201118",
+            "StackId": "arn:aws:cloudformation:us-east-1:100333399531:stack/icecloud-20181209201118/7fae3ca0-fc18-11e8-9f9c-0e89924d3e24"
+        }
+    }
+}
