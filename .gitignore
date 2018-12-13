@@ -29,4 +29,3 @@ amplify/backend/amplify-meta.json
 aws-exports.js
 awsconfiguration.json
 node_modules
-.graphqlconfig.yml

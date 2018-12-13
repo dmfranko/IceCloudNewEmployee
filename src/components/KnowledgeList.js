@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
-import Amplify, { graphqlOperation } from "aws-amplify";
-import { withAuthenticator, Connect } from 'aws-amplify-react';
+import { graphqlOperation } from "aws-amplify";
+import { Connect } from 'aws-amplify-react';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import * as queries from '../graphql/queries';
 
@@ -20,25 +22,31 @@ const styles = theme => ({
   },
 });
 
+
+
 const ListView = ({ todos }) => (
   <div>
-    <h3>Knowledge</h3>
-    <List>
-      <React.Fragment>
-        {todos.map(todo =>
-          <ListItem key={todo.id}>
-            <ListItemText
-              primary={todo.name}
-              secondary={
-                <React.Fragment>
+
+  <Typography component="h4" variant="h4" gutterBottom>
+    Quick hints
+  </Typography>
+
+  <Grid container spacing={24}>
+         {todos.map(todo => (
+          <Grid item xs={6} key={todo.id} cols={1}>
+            <Card>
+              <CardContent elevation={3}>
+                <Typography variant="h5" component="h2">
+                  {todo.name}
+                </Typography>
+                <Typography component="p">
                   {todo.description}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-        )}
-      </React.Fragment>
-    </List>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
   </div>
 );
 
