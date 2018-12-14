@@ -5,8 +5,6 @@ import green from '@material-ui/core/colors/green';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
@@ -28,7 +26,7 @@ class CheckList extends React.Component {
                 <Typography component="h5" variant="h5" gutterBottom>
                     TODOs
                 </Typography>
-                <FormGroup row>
+                <FormGroup>
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -64,6 +62,15 @@ class CheckList extends React.Component {
                             />
                         }
                         label="Setup MFA on Mobile"
+                    />
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                value="checkedHandbook"
+                                color="primary"
+                            />
+                        }
+                        label="Read employee handbook"
                     />
                 </FormGroup>
             </div>

@@ -91,7 +91,7 @@
 				"TemplateURL": "https://s3.amazonaws.com/icecloud-20181209201118-deployment/amplify-cfn-templates/auth/cognitoe5680f73-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "cognitoe5680f73_identitypool_e5680f73",
-					"allowUnauthenticatedIdentities": false,
+					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
 					"lambdaLogPolicy": "cognitoe5680f73_lambda_log_policy",
 					"openIdLambdaRoleName": "cognitoe5680f73_openid_lambda_role",
@@ -151,6 +151,23 @@
 					"ResolverBucket": "icecloud-20181209201118-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
 					"DeploymentTimestamp": "1544405880907"
+				}
+			}
+		},
+		"analyticsicecloud": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/icecloud-20181209201118-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"Parameters": {
+					"appName": "icecloud",
+					"roleName": "pinpointLambdaRole872689c6",
+					"cloudWatchPolicyName": "cloudWatchPolicy872689c6",
+					"pinpointPolicyName": "pinpointPolicy872689c6",
+					"authPolicyName": "pinpoint_amplify_872689c6",
+					"unauthPolicyName": "pinpoint_amplify_872689c6",
+					"authRoleName": "icecloud-20181209201118-authRole",
+					"unauthRoleName": "icecloud-20181209201118-unauthRole",
+					"IAMPrefix": "100333399531"
 				}
 			}
 		}

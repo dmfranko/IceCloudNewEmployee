@@ -1,0 +1,11 @@
+{
+    "appName": "icecloud",
+    "roleName": "pinpointLambdaRole872689c6",
+    "cloudWatchPolicyName": "cloudWatchPolicy872689c6",
+    "pinpointPolicyName": "pinpointPolicy872689c6",
+    "authPolicyName": "pinpoint_amplify_872689c6",
+    "unauthPolicyName": "pinpoint_amplify_872689c6",
+    "authRoleName": "icecloud-20181209201118-authRole",
+    "unauthRoleName": "icecloud-20181209201118-unauthRole",
+    "IAMPrefix": "100333399531"
+}
