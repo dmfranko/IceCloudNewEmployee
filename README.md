@@ -1,3 +1,7 @@
+## Project Description
+
+This is part of my final project for my Brandeis Cloud computing course.  It's intention is to be a lightweight employee onboarding helper.  It takes advantage of Amplify AWS, React, and many AWS componenets.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
