@@ -4,6 +4,14 @@ type Todo {
   description: String
 }
 
+type Tasks {
+  id: ID!
+  user: String!
+  name: String!
+  description: String
+  status: String
+}
+
 enum ModelSortDirection {
   ASC
   DESC
@@ -81,6 +89,8 @@ input ModelTodoFilterInput {
 type Query {
   getTodo(id: ID!): Todo
   listTodos(filter: ModelTodoFilterInput, limit: Int, nextToken: String): ModelTodoConnection
+  getTasks(id: ID!): Tasks
+  listTaskss(filter: ModelTasksFilterInput, limit: Int, nextToken: String): ModelTasksConnection
 }
 
 input CreateTodoInput {
@@ -103,10 +113,52 @@ type Mutation {
   createTodo(input: CreateTodoInput!): Todo
   updateTodo(input: UpdateTodoInput!): Todo
   deleteTodo(input: DeleteTodoInput!): Todo
+  createTasks(input: CreateTasksInput!): Tasks
+  updateTasks(input: UpdateTasksInput!): Tasks
+  deleteTasks(input: DeleteTasksInput!): Tasks
 }
 
 type Subscription {
   onCreateTodo: Todo @aws_subscribe(mutations: ["createTodo"])
   onUpdateTodo: Todo @aws_subscribe(mutations: ["updateTodo"])
   onDeleteTodo: Todo @aws_subscribe(mutations: ["deleteTodo"])
+  onCreateTasks: Tasks @aws_subscribe(mutations: ["createTasks"])
+  onUpdateTasks: Tasks @aws_subscribe(mutations: ["updateTasks"])
+  onDeleteTasks: Tasks @aws_subscribe(mutations: ["deleteTasks"])
+}
+
+type ModelTasksConnection {
+  items: [Tasks]
+  nextToken: String
+}
+
+input ModelTasksFilterInput {
+  id: ModelIDFilterInput
+  user: ModelStringFilterInput
+  name: ModelStringFilterInput
+  description: ModelStringFilterInput
+  status: ModelStringFilterInput
+  and: [ModelTasksFilterInput]
+  or: [ModelTasksFilterInput]
+  not: ModelTasksFilterInput
+}
+
+input CreateTasksInput {
+  id: ID
+  user: String!
+  name: String!
+  description: String
+  status: String
+}
+
+input UpdateTasksInput {
+  id: ID!
+  user: String
+  name: String
+  description: String
+  status: String
+}
+
+input DeleteTasksInput {
+  id: ID
 }

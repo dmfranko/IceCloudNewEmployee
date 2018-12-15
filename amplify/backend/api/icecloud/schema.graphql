@@ -3,3 +3,11 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type Tasks @model {
+  id: ID!
+  user: String!
+  name: String!
+  description: String
+  status: String
+}

@@ -25,3 +25,33 @@ export const deleteTodo = `mutation DeleteTodo($input: DeleteTodoInput!) {
   }
 }
 `;
+export const createTasks = `mutation CreateTasks($input: CreateTasksInput!) {
+  createTasks(input: $input) {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;
+export const updateTasks = `mutation UpdateTasks($input: UpdateTasksInput!) {
+  updateTasks(input: $input) {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;
+export const deleteTasks = `mutation DeleteTasks($input: DeleteTasksInput!) {
+  deleteTasks(input: $input) {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;

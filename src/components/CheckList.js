@@ -7,6 +7,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 
+import { graphqlOperation } from "aws-amplify";
+import { Connect } from 'aws-amplify-react';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
+
+import * as queries from '../graphql/queries';
+
+
 const styles = {
     root: {
         color: green[600],
@@ -17,6 +27,23 @@ const styles = {
     checked: {},
 };
 
+const TaskList = ({ tasks }) => (
+    <FormGroup>
+        {tasks.map(task => (
+            <FormControlLabel key={task.id}
+                control={
+                    <Checkbox
+                        value={task.name}
+                        color="primary"
+                    />
+                }
+                label={task.description}
+            />
+        ))}
+        <br />
+    </FormGroup>
+);
+
 class CheckList extends React.Component {
     render() {
         const { classes } = this.props;
@@ -26,53 +53,16 @@ class CheckList extends React.Component {
                 <Typography component="h5" variant="h5" gutterBottom>
                     TODOs
                 </Typography>
-                <FormGroup>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                value="checkedAccount"
-                                color="primary"
-                            />
+                    <Connect query={graphqlOperation(queries.listTaskss)}>
+                        {({ data: { listTaskss } }) =>
+                            <div> {
+                                listTaskss && listTaskss.items.map ? (
+                                    <TaskList tasks={listTaskss.items} />
+                                ) : (
+                                        <h3> Loading </h3>
+                                    )} </div>
                         }
-                        label="Create Account"
-                    />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                value="checkedWitholding"
-                                color="primary"
-                            />
-                        }
-                        label="Update Witholding Information"
-                    />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                value="checkedEmergency"
-                                color="primary"
-                            />
-                        }
-                        label="Update Emergency Contacts"
-                    />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                value="checkedMFA"
-                                color="primary"
-                            />
-                        }
-                        label="Setup MFA on Mobile"
-                    />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                value="checkedHandbook"
-                                color="primary"
-                            />
-                        }
-                        label="Read employee handbook"
-                    />
-                </FormGroup>
+                    </Connect>
             </div>
         );
     }

@@ -25,3 +25,33 @@ export const onDeleteTodo = `subscription OnDeleteTodo {
   }
 }
 `;
+export const onCreateTasks = `subscription OnCreateTasks {
+  onCreateTasks {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;
+export const onUpdateTasks = `subscription OnUpdateTasks {
+  onUpdateTasks {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;
+export const onDeleteTasks = `subscription OnDeleteTasks {
+  onDeleteTasks {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;

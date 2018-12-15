@@ -24,3 +24,30 @@ export const listTodos = `query ListTodos(
   }
 }
 `;
+export const getTasks = `query GetTasks($id: ID!) {
+  getTasks(id: $id) {
+    id
+    user
+    name
+    description
+    status
+  }
+}
+`;
+export const listTaskss = `query ListTaskss(
+  $filter: ModelTasksFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTaskss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      user
+      name
+      description
+      status
+    }
+    nextToken
+  }
+}
+`;
